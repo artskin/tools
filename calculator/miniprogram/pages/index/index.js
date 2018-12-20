@@ -9,25 +9,66 @@ Page({
     takeSession: false,
     requestResult: '',
     inputValue: '0.00',
+    zengshou:'0.00',
     wageValue:'0.00',
+    oldRatalVal:'0.00',
+    newRatalVal:'0.00',
     deductionValue:5000
   },
   bindKeyInput(e) {
     let ratalVal = e.detail.value - this.data.deductionValue;
     this.setData({
+      oldRatalVal: e.detail.value - 5000,
       inputValue: ratalVal,
       wageValue: e.detail.value
     })
   },
   deduction(e){
-    
-    let deductionVal = this.data.deductionValue + parseInt(e.detail.value);
-    let ratalVal = this.data.wageValue - deductionVal;
-    console.log(this.data.deductionValue, e.detail.value, deductionVal)
+    if (e.detail.value.length>0){
+      let deductionVal = this.data.deductionValue + parseInt(e.detail.value);
+      let ratalVal = this.data.wageValue - deductionVal;
+      console.log(this.data.deductionValue, e.detail.value, deductionVal)
+      this.setData({
+        //inputValue: ratalVal,
+        newRatalVal: ratalVal,
+        deductionValue: deductionVal
+      })
+    }
+  },
+  primary(e){
+    let edu = this.data.newRatalVal;
+    let rate = 0;
+    let susuan = 0;
+    if (edu < 3000){
+      rate = 0.03;
+      susuan = 0;
+    } else if(edu < 12000){
+      rate = 0.1;
+      susuan = 210;
+    } else if (edu < 25000){
+      rate = 0.2;
+      susuan = 1410;
+    } else if(edu < 35000) {
+      rate = 0.25;
+      susuan = 2660;
+    } else if (edu < 55000) {
+      rate = 0.3;
+      susuan = 4410;
+    } else if (edu < 80000) {
+      rate = 0.35;
+      susuan = 7160;
+    } else if (edu > 80000) {
+      rate = 0.45;
+      susuan = 15160;
+    }
+    let newIncomeVal = edu * rate - susuan;
+    let oldIncomeVal = this.data.oldRatalVal * rate - susuan;
+    console.log(edu, rate, susuan);
+    console.log(this.data.oldRatalVal, rate, susuan)
     this.setData({
-      inputValue: ratalVal
+      zengshou: oldIncomeVal - newIncomeVal
     })
-    
+
   },
 
   onLoad: function() {

@@ -5,16 +5,45 @@ page {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  
 }
-.panel{padding: 20rpx;text-align: center;background: #44a592;color: #fff;}
-.income{font-size: 40px;}
+.panel{padding:4%;text-align: center;color: #fff;height: 200px;width: 100%;
+box-sizing: border-box;
+}
+.panel_card{
+  position: fixed;
+  background: #44a592;
+  z-index: 100;
+  width: 92%;
+  border-radius: 10rpx;
+  box-shadow: 0 5px 15px rgba(11, 121, 106, 0.4);
+  padding: 30rpx 0;
+  
+}
+.panel_head{font-size: 24rpx;}
+.income{font-size: 48px;}
 .panel input{width: 100%;}
+.panel .section{flex-direction: row;}
 .list{border-top:1rpx solid #eee;}
-.list-item{padding: 20rpx;display: flex;background: #fff;border-bottom:1rpx solid #eee;width: 100%; }
-.list-item .list__title{width: 40%;text-align: left}
-.section__title{padding: 20rpx; }
+.list-item{padding:20rpx 30rpx;display: flex;background: #fff;border-bottom:1rpx solid #eee;width: 100%; box-sizing: border-box;}
+.list-item .list__title{width: 30%;text-align: left;font-size: 28rpx;color:#666;line-height: 53rpx;height: 53rpx;}
+.list-item input{line-height: 53rpx;height: 53rpx;}
+.section__title{padding: 20rpx 30rpx;color: #999;font-size: 32rpx; }
 .panel__title{font-size: 24rpx;}
-.panel-item{display: flex;width: 40%}
+.panel-item{width: 50%;
+}
+.col-10{width: 100%;}
+.gap10{padding: 30rpx;}
+
+.input-disabled{color: #999;}
+
+
+
+
+
+
+
+
 .userinfo, .uploader, .tunnel {
   margin-top: 40rpx;
   height: 140rpx;

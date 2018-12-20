@@ -1,18 +1,20 @@
 <!--index.wxml-->
 <view class="container">
   <view class="panel">
-    <view class="panel_head">
-      <text>您将增收：</text>
-      <view class='income'>{{inputValue}}</view>
-    </view>
-    <view class="section">
-      <view class="panel-item">
-        <text class="panel__title">纳税额度是：</text>
-        <view>{{inputValue}}</view>
+    <view class="panel_card">
+      <view class="panel_head">
+        <text>增收金额</text>
+        <view class='income'>￥{{zengshou}}</view>
       </view>
-      <view class="panel-item">
-        <text class="panel__title">纳税额度是：</text>
-        <view>{{inputValue}}</view>
+      <view class="section">
+        <view class="panel-item">
+          <text class="panel__title">扣除前纳税额度</text>
+          <view>{{oldRatalVal}}</view>
+        </view>
+        <view class="panel-item">
+          <text class="panel__title">扣除后纳税额度</text>
+          <view>{{newRatalVal}}</view>
+        </view>
       </view>
     </view>
   </view>
@@ -23,31 +25,46 @@
     </view>
   </view>
   <view class="section list">
-    <text class="section__title">专项附加扣除：</text>
+    <text class="section__title">新增专项附加扣除：</text>
     <view class="list-item">
-      <text class="list__title">子女教育支出：</text>
-      <input bindinput="deduction" type="digit" placeholder="每月1000元" />
+      <text class="list__title">子女教育扣除：</text>
+      <input bindblur="deduction" type="digit" placeholder="每月1000元" />
     </view>
     <view class="list-item">
-      <text class="list__title">继续教育支出：</text>
-      <input bindinput="deduction" type="digit" placeholder="每月400元" />
+      <text class="list__title">继续教育扣除：</text>
+      <input bindblur="deduction" type="digit" placeholder="每月400元" />
     </view>
     
     <view class="list-item">
-      <text class="list__title">住房支出：</text>
-      <input bindinput="deduction" type="digit" placeholder="每月1200元" />
+      <text class="list__title">住 /租房扣除：</text>
+      <input bindblur="deduction" type="digit" placeholder="每月1200元" />
     </view>
     <view class="list-item">
-      <text class="list__title">赡养老人：</text>
-      <input bindinput="deduction" type="digit" placeholder="60岁以上，1000元" />
+      <text class="list__title">赡养老人扣除：</text>
+      <input bindblur="deduction" type="digit" placeholder="60岁以上，1000元" />
     </view>
     <view class="list-item">
-      <text class="list__title">大病医疗支出：</text>
-      <input bindinput="deduction" type="digit" placeholder="带小数点的数字键盘" />
+      <text class="list__title">大病医疗扣除：</text>
+      <input bindblur="deduction" type="digit" placeholder="" />
     </view>
   </view>
+
+  <view class="section list">
+    <text class="section__title">其他扣除额：</text>
+    <view class="list-item">
+      <text class="list__title">五险一金额度：</text>
+      <input bindblur="deduction" type="digit" placeholder="请输入五险一金扣除额" />
+    </view>
+    <view class="list-item">
+      <text class="list__title">税收起征额：</text>
+      <input class='input-disabled' bindblur="deduction" type="digit" value="5000" disabled />
+    </view>
+  </view>
+  <view class="section gap10">
+    <button class="col-10" type="primary" bindtap="primary"> 计算 </button>
+  </view>
   <!-- 用户 openid -->
-  <view class="userinfo">
+  <!-- <view class="userinfo">
     <button 
       open-type="getUserInfo" 
       bindgetuserinfo="onGetUserInfo"
@@ -57,32 +74,32 @@
     <view>
       <button class="userinfo-nickname" bindtap="onGetOpenid">点击获取 openid</button>
     </view>
-  </view>
+  </view> -->
 
 
   <!-- 上传图片 -->
-  <view class="uploader">
+  <!-- <view class="uploader">
     <view class="uploader-text" bindtap="doUpload">
       <text>上传图片</text>
     </view>
     <view class="uploader-container" wx:if="{{imgUrl}}">
       <image class="uploader-image" src="{{imgUrl}}" mode="aspectFit" bindtap="previewImg"></image>
     </view>
-  </view>
+  </view> -->
 
 
   <!-- 操作数据库 -->
-  <view class="uploader">
+  <!-- <view class="uploader">
     <navigator url="../databaseGuide/databaseGuide" open-type="navigate" class="uploader-text">
       <text>前端操作数据库</text>
     </navigator>
-  </view>
+  </view> -->
 
   <!-- 新建云函数 -->
-  <view class="uploader">
+  <!-- <view class="uploader">
     <navigator url="../addFunction/addFunction" open-type="navigate" class="uploader-text">
       <text>快速新建云函数</text>
     </navigator>
-  </view>
+  </view> -->
 
 </view>

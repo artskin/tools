@@ -11,8 +11,8 @@
   "window": {
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#44a592",
-    "navigationBarTitleText": "新税法计算器",
-    "navigationBarTextStyle": "#fff"
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTitleText": "新税计算器",
+    "navigationBarTextStyle": "black"
   }
 }
