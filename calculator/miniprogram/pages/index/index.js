@@ -47,8 +47,17 @@ Page({
     oldWage:"0.00",
     newWage:"0.00"
   },
-  bindKeyInput(e) {
+  getWage(e) {
+    let wageVal = e.detail.value;
+    let socialVal ;
+
+    if (wageVal > 21396){
+      socialVal = 21396;
+    }else{
+      socialVal = wageVal;
+    }
     let ratalVal = e.detail.value - this.data.deductionValue;
+    
     this.setData({
       oldRatalVal: e.detail.value - 5000,
       inputValue: ratalVal,

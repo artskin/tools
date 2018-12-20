@@ -22,7 +22,7 @@
   <view class="section wage">
     <text class="section__title">您的月收入：</text>
     <view class="list-item">
-      <input bindinput="bindKeyInput" type="digit" placeholder="请输入您的工资" placeholder-class="placeholder" />
+      <input bindblur="getWage" type="digit" placeholder="请输入您的工资" placeholder-class="placeholder" />
     </view>
   </view>
 
@@ -30,7 +30,7 @@
     <text class="section__title">常规扣除：</text>
     <view class="list-item">
       <text class="list__title">五险一金：</text>
-      <input bindblur="deduction" type="digit" placeholder="请输入五险一金扣除额" placeholder-class="placeholder" />
+      <input bindblur="deduction" type="digit" placeholder="请输入五险一金扣除额" placeholder-class="placeholder" value="" />
     </view>
     <view class="list-item">
       <text class="list__title">税收起征额：</text>
