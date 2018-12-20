@@ -7,27 +7,28 @@ page {
   justify-content: flex-start;
   
 }
-.panel{padding:4%;text-align: center;color: #fff;height: 200px;width: 100%;
+.panel{padding:3.5%;text-align: center;color: #fff;height: 390rpx;width: 100%;
 box-sizing: border-box;
 }
 .panel_card{
   position: fixed;
   background: #44a592;
   z-index: 100;
-  width: 92%;
+  width: 93%;
   border-radius: 10rpx;
-  box-shadow: 0 5px 15px rgba(11, 121, 106, 0.4);
+  box-shadow: 0 5px 20px rgba(11, 121, 106, 0.4);
   padding: 30rpx 0;
-  
+  height: 280rpx;
 }
 .panel_head{font-size: 24rpx;}
 .income{font-size: 48px;}
 .panel input{width: 100%;}
 .panel .section{flex-direction: row;}
-.list{border-top:1rpx solid #eee;}
+.list{}
 .list-item{padding:20rpx 30rpx;display: flex;background: #fff;border-bottom:1rpx solid #eee;width: 100%; box-sizing: border-box;}
-.list-item .list__title{width: 30%;text-align: left;font-size: 28rpx;color:#666;line-height: 53rpx;height: 53rpx;}
-.list-item input{line-height: 53rpx;height: 53rpx;}
+.list-item:first-child{border-top:1rpx solid #eee;}
+.list-item .list__title{width: 28%;text-align: left;font-size: 28rpx;color:#666;line-height: 53rpx;height: 53rpx;}
+.list-item input{line-height: 53rpx;height: 53rpx;color: #44a592}
 .section__title{padding: 20rpx 30rpx;color: #999;font-size: 32rpx; }
 .panel__title{font-size: 24rpx;}
 .panel-item{width: 50%;
@@ -35,12 +36,13 @@ box-sizing: border-box;
 .col-10{width: 100%;}
 .gap10{padding: 30rpx;}
 
-.input-disabled{color: #999;}
 
-
-
-
-
+button[type=primary]{
+  background-color: #44a592;
+  border-radius: 100px;
+}
+input.input-disabled{color: #999}
+.placeholder{color: #ccc}
 
 
 

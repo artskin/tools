@@ -18,48 +18,52 @@
       </view>
     </view>
   </view>
+  <view class="section">{{oldWage}} - {{newWage}}</view>
   <view class="section wage">
     <text class="section__title">您的月收入：</text>
     <view class="list-item">
-      <input bindinput="bindKeyInput" type="digit" placeholder="请输入您的工资" />
-    </view>
-  </view>
-  <view class="section list">
-    <text class="section__title">新增专项附加扣除：</text>
-    <view class="list-item">
-      <text class="list__title">子女教育扣除：</text>
-      <input bindblur="deduction" type="digit" placeholder="每月1000元" />
-    </view>
-    <view class="list-item">
-      <text class="list__title">继续教育扣除：</text>
-      <input bindblur="deduction" type="digit" placeholder="每月400元" />
-    </view>
-    
-    <view class="list-item">
-      <text class="list__title">住 /租房扣除：</text>
-      <input bindblur="deduction" type="digit" placeholder="每月1200元" />
-    </view>
-    <view class="list-item">
-      <text class="list__title">赡养老人扣除：</text>
-      <input bindblur="deduction" type="digit" placeholder="60岁以上，1000元" />
-    </view>
-    <view class="list-item">
-      <text class="list__title">大病医疗扣除：</text>
-      <input bindblur="deduction" type="digit" placeholder="" />
+      <input bindinput="bindKeyInput" type="digit" placeholder="请输入您的工资" placeholder-class="placeholder" />
     </view>
   </view>
 
   <view class="section list">
-    <text class="section__title">其他扣除额：</text>
+    <text class="section__title">常规扣除：</text>
     <view class="list-item">
-      <text class="list__title">五险一金额度：</text>
-      <input bindblur="deduction" type="digit" placeholder="请输入五险一金扣除额" />
+      <text class="list__title">五险一金：</text>
+      <input bindblur="deduction" type="digit" placeholder="请输入五险一金扣除额" placeholder-class="placeholder" />
     </view>
     <view class="list-item">
       <text class="list__title">税收起征额：</text>
       <input class='input-disabled' bindblur="deduction" type="digit" value="5000" disabled />
     </view>
   </view>
+
+  <view class="section list">
+    <text class="section__title">新增专项扣除：</text>
+    <view class="list-item">
+      <text class="list__title">子女教育：</text>
+      <input bindblur="deduction" type="digit"  placeholder="每月1000元" placeholder-class="placeholder" />
+    </view>
+    <view class="list-item">
+      <text class="list__title">继续教育：</text>
+      <input bindblur="deduction" type="digit" placeholder="每月400元" placeholder-class="placeholder" />
+    </view>
+    
+    <view class="list-item">
+      <text class="list__title">住 / 租房：</text>
+      <input bindblur="deduction" type="digit" placeholder="每月1200元" placeholder-class="placeholder" />
+    </view>
+    <view class="list-item">
+      <text class="list__title">赡养老人：</text>
+      <input bindblur="deduction" type="digit" placeholder="60岁以上，1000元" placeholder-class="placeholder" />
+    </view>
+    <view class="list-item">
+      <text class="list__title">大病医疗：</text>
+      <input bindblur="deduction" type="digit" placeholder="" placeholder-class="placeholder" />
+    </view>
+  </view>
+
+  
   <view class="section gap10">
     <button class="col-10" type="primary" bindtap="primary"> 计算 </button>
   </view>

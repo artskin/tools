@@ -7,13 +7,45 @@ Page({
     userInfo: {},
     logged: false,
     takeSession: false,
+    taxRate:[
+      {
+        "rate":"0.03",
+        "deduction":"0"
+      },
+      {
+        "rate": "0.10",
+        "deduction": "210"
+      },
+      {
+        "rate": "0.20",
+        "deduction": "1410"
+      },
+      {
+        "rate": "0.25",
+        "deduction": "2660"
+      },
+      {
+        "rate": "0.30",
+        "deduction": "4410"
+      },
+      {
+        "rate": "0.35",
+        "deduction": "7160"
+      },
+      {
+        "rate": "0.40",
+        "deduction": "15160"
+      }
+    ],
     requestResult: '',
     inputValue: '0.00',
     zengshou:'0.00',
     wageValue:'0.00',
     oldRatalVal:'0.00',
     newRatalVal:'0.00',
-    deductionValue:5000
+    deductionValue:5000,
+    oldWage:"0.00",
+    newWage:"0.00"
   },
   bindKeyInput(e) {
     let ratalVal = e.detail.value - this.data.deductionValue;
@@ -25,9 +57,10 @@ Page({
   },
   deduction(e){
     if (e.detail.value.length>0){
+
       let deductionVal = this.data.deductionValue + parseInt(e.detail.value);
       let ratalVal = this.data.wageValue - deductionVal;
-      console.log(this.data.deductionValue, e.detail.value, deductionVal)
+
       this.setData({
         //inputValue: ratalVal,
         newRatalVal: ratalVal,
@@ -37,36 +70,31 @@ Page({
   },
   primary(e){
     let edu = this.data.newRatalVal;
-    let rate = 0;
-    let susuan = 0;
+    let i =0;
     if (edu < 3000){
-      rate = 0.03;
-      susuan = 0;
     } else if(edu < 12000){
-      rate = 0.1;
-      susuan = 210;
+      i =1;
     } else if (edu < 25000){
-      rate = 0.2;
-      susuan = 1410;
+      i = 2;
     } else if(edu < 35000) {
-      rate = 0.25;
-      susuan = 2660;
+      i = 3;
     } else if (edu < 55000) {
-      rate = 0.3;
-      susuan = 4410;
+      i = 4;
     } else if (edu < 80000) {
-      rate = 0.35;
-      susuan = 7160;
+      i = 5;
     } else if (edu > 80000) {
-      rate = 0.45;
-      susuan = 15160;
+      i = 6;
     }
-    let newIncomeVal = edu * rate - susuan;
-    let oldIncomeVal = this.data.oldRatalVal * rate - susuan;
-    console.log(edu, rate, susuan);
-    console.log(this.data.oldRatalVal, rate, susuan)
+    let theRate      = parseFloat(this.data.taxRate[i].rate);
+    let theDeduction = parseFloat(this.data.taxRate[i].deduction);
+
+    let newIncomeVal = edu * theRate - theDeduction;
+    let oldIncomeVal = this.data.oldRatalVal * theRate - theDeduction;
+
+    console.log(edu,this.data.oldRatalVal, theRate, theDeduction);
+    console.log(newIncomeVal, oldIncomeVal)
     this.setData({
-      zengshou: oldIncomeVal - newIncomeVal
+      zengshou: (oldIncomeVal - newIncomeVal).toFixed(2)
     })
 
   },
