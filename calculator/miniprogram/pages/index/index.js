@@ -37,78 +37,158 @@ Page({
         "deduction": "15160"
       }
     ],
+    social:[
+      {
+        pension:"0.08",
+        medical:"0.02",
+        unemployment:"0.005",
+        providentFund:"0.07"
+      },
+      {
+        pension: "0.08",
+        medical: "0.02",
+        unemployment: "0.002",
+        providentFund: "0.12"
+      }
+    ],
+    kcItems:{
+      house:0,
+      parents: 0,
+      children: 0,
+      myedu: 0,
+      disease: 0,
+    },
     requestResult: '',
-    inputValue: '0.00',
-    zengshou:'0.00',
-    wageValue:'0.00',
-    oldRatalVal:'0.00',
-    newRatalVal:'0.00',
-    deductionValue:5000,
-    oldWage:"0.00",
-    newWage:"0.00"
+    zengshou:0.00,
+    wageValue:0.00,
+    oldRatalVal:0.00,
+    newRatalVal:0.00,
+    taxBaseVal:5000,
+    socialFundVal:0.00,
+    oldWage:0.00,
+    newWage:0.00,
+    deductionValue:0.00
+  },
+  getSocialFund(socialBase3,i){
+    let yanglao = socialBase3 * this.data.social[i].pension;
+    let yiliao =  socialBase3 * this.data.social[i].medical;
+    let shiye =   socialBase3 * this.data.social[i].unemployment;
+    let providentFund = socialBase3 * this.data.social[i].providentFund;
+
+    return yanglao + yiliao + shiye + providentFund;
   },
   getWage(e) {
-    let wageVal = e.detail.value;
-    let socialVal ;
+    if (e.detail.value.length > 3){
+      let wageVal = e.detail.value;
+      let socialBase3;
 
-    if (wageVal > 21396){
-      socialVal = 21396;
-    }else{
-      socialVal = wageVal;
-    }
-    let ratalVal = e.detail.value - this.data.deductionValue;
-    
-    this.setData({
-      oldRatalVal: e.detail.value - 5000,
-      inputValue: ratalVal,
-      wageValue: e.detail.value
-    })
-  },
-  deduction(e){
-    if (e.detail.value.length>0){
-
-      let deductionVal = this.data.deductionValue + parseInt(e.detail.value);
-      let ratalVal = this.data.wageValue - deductionVal;
+      if (wageVal > 21396) {
+        socialBase3 = 21396;
+      } else {
+        socialBase3 = wageVal;
+      }
+      let ratalVal = e.detail.value - this.data.taxBaseVal - this.getSocialFund(socialBase3, 0);
+      if (ratalVal <0){
+        ratalVal = 0;
+      }
 
       this.setData({
-        //inputValue: ratalVal,
+        oldRatalVal: ratalVal,
         newRatalVal: ratalVal,
-        deductionValue: deductionVal
+        socialFundVal: this.getSocialFund(socialBase3, 0),
+        wageValue: e.detail.value
+      });
+    }
+  },
+  deduction(e){
+
+    if (e.detail.value.length>2){
+      switch (e.target.id) {
+        case "kc_house":
+          this.data.kcItems.house = e.detail.value
+          break;
+        case "kc_parents":
+          this.data.kcItems.parents = e.detail.value
+          break;
+        case "kc_children":
+          this.data.kcItems.children = e.detail.value
+          break;
+        case "kc_myedu":
+          this.data.kcItems.myedu = e.detail.value
+          break;
+        case "kc_disease":
+          this.data.kcItems.disease = e.detail.value
+          break;
+        default:
+          
+      }
+
+      let deductionVal = parseInt(this.data.kcItems.house) + 
+      parseInt(this.data.kcItems.parents) + 
+      parseInt(this.data.kcItems.children) + 
+      parseInt(this.data.kcItems.myedu) + 
+      parseInt(this.data.kcItems.disease);
+      
+      let ratalVal = this.data.oldRatalVal - deductionVal;
+      console.log(deductionVal,e)
+
+      this.setData({
+        newRatalVal: ratalVal,
+        // kcItems: {
+        //   house: house_val,
+        //   parents: parents_val,
+        //   children: children_val,
+        //   myedu: myedu_val,
+        //   disease: disease_val,
+        // }
       })
     }
   },
   primary(e){
-    let edu = this.data.newRatalVal;
-    let i =0;
-    if (edu < 3000){
-    } else if(edu < 12000){
-      i =1;
-    } else if (edu < 25000){
-      i = 2;
-    } else if(edu < 35000) {
-      i = 3;
-    } else if (edu < 55000) {
-      i = 4;
-    } else if (edu < 80000) {
-      i = 5;
-    } else if (edu > 80000) {
-      i = 6;
-    }
-    let theRate      = parseFloat(this.data.taxRate[i].rate);
-    let theDeduction = parseFloat(this.data.taxRate[i].deduction);
+    var _this = this;
+    setTimeout(function(){
+      let edu = _this.data.newRatalVal;
+      let i = 0;
+      if (edu < 3000) {
+      } else if (edu < 12000) {
+        i = 1;
+      } else if (edu < 25000) {
+        i = 2;
+      } else if (edu < 35000) {
+        i = 3;
+      } else if (edu < 55000) {
+        i = 4;
+      } else if (edu < 80000) {
+        i = 5;
+      } else if (edu > 80000) {
+        i = 6;
+      }
+      let theRate = parseFloat(_this.data.taxRate[i].rate);
+      let theDeduction = parseFloat(_this.data.taxRate[i].deduction);
 
-    let newIncomeVal = edu * theRate - theDeduction;
-    let oldIncomeVal = this.data.oldRatalVal * theRate - theDeduction;
+      let newIncomeVal = _this.data.wageValue - (edu * theRate - theDeduction) - _this.data.socialFundVal;
+      let oldIncomeVal = _this.data.wageValue - (_this.data.oldRatalVal * theRate - theDeduction) - _this.data.socialFundVal;
 
-    console.log(edu,this.data.oldRatalVal, theRate, theDeduction);
-    console.log(newIncomeVal, oldIncomeVal)
-    this.setData({
-      zengshou: (oldIncomeVal - newIncomeVal).toFixed(2)
-    })
+      console.log(newIncomeVal,oldIncomeVal, _this.data.socialFundVal, edu * theRate - theDeduction)
+      _this.setData({
+        zengshou: (newIncomeVal- oldIncomeVal).toFixed(2)
+      })
 
+    },100)
+    
   },
 
   onLoad: function() {
+    wx.showShareMenu();
+    let self = this
+    self.saveinfo = new Proxy({}, {
+      set: function (target, key, value, receiver) {
+        // 给saveinfo中属性赋值前，可以令程序执行其他功能
+        self.moreinfo.item[key].value = value
+        return Reflect.set(target, key, value, receiver)
+      }
+    });
+
     if (!wx.cloud) {
       wx.redirectTo({
         url: '../chooseLib/chooseLib',

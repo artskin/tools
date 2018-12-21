@@ -7,7 +7,7 @@ page {
   justify-content: flex-start;
   
 }
-.panel{padding:3.5%;text-align: center;color: #fff;height: 390rpx;width: 100%;
+.panel{padding:3.5%;text-align: center;color: #fff;height: 380rpx;width: 100%;
 box-sizing: border-box;
 }
 .panel_card{
@@ -18,7 +18,7 @@ box-sizing: border-box;
   border-radius: 10rpx;
   box-shadow: 0 5px 20px rgba(11, 121, 106, 0.4);
   padding: 30rpx 0;
-  height: 280rpx;
+  height: 270rpx;
 }
 .panel_head{font-size: 24rpx;}
 .income{font-size: 48px;}
@@ -44,7 +44,7 @@ button[type=primary]{
 input.input-disabled{color: #999}
 .placeholder{color: #ccc}
 
-
+.cprigt{color: #ccc;text-align: center;padding: 20px;font-size: 12px;}
 
 .userinfo, .uploader, .tunnel {
   margin-top: 40rpx;
