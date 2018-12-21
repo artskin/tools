@@ -64,7 +64,7 @@ Page({
     oldRatalVal:0.00,
     newRatalVal:0.00,
     taxBaseVal:5000,
-    socialFundVal:0.00,
+    socialFundVal:'',
     oldWage:0.00,
     newWage:0.00,
     deductionValue:0.00

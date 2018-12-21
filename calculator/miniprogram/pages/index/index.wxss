@@ -7,7 +7,7 @@ page {
   justify-content: flex-start;
   
 }
-.panel{padding:3.5%;text-align: center;color: #fff;height: 380rpx;width: 100%;
+.panel{padding:2% 3.5%;text-align: center;color: #fff;height: 360rpx;width: 100%;
 box-sizing: border-box;
 }
 .panel_card{
@@ -18,9 +18,10 @@ box-sizing: border-box;
   border-radius: 10rpx;
   box-shadow: 0 5px 20px rgba(11, 121, 106, 0.4);
   padding: 30rpx 0;
-  height: 270rpx;
+  min-height: 260rpx;
 }
-.panel_head{font-size: 24rpx;}
+.panel_head,
+.panel__title{font-size: 24rpx;color: rbga(255,255,255,.5)}
 .income{font-size: 48px;}
 .panel input{width: 100%;}
 .panel .section{flex-direction: row;}
@@ -30,7 +31,7 @@ box-sizing: border-box;
 .list-item .list__title{width: 28%;text-align: left;font-size: 28rpx;color:#666;line-height: 53rpx;height: 53rpx;}
 .list-item input{line-height: 53rpx;height: 53rpx;color: #44a592}
 .section__title{padding: 20rpx 30rpx;color: #999;font-size: 32rpx; }
-.panel__title{font-size: 24rpx;}
+
 .panel-item{width: 50%;
 }
 .col-10{width: 100%;}
@@ -44,7 +45,7 @@ button[type=primary]{
 input.input-disabled{color: #999}
 .placeholder{color: #ccc}
 
-.cprigt{color: #ccc;text-align: center;padding: 20px;font-size: 12px;}
+.cprigt{color: #ccc;text-align: center;padding-bottom: 30rpx;font-size: 12px;}
 
 .userinfo, .uploader, .tunnel {
   margin-top: 40rpx;

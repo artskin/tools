@@ -42,7 +42,7 @@
   </view>
 
   <view class="section list">
-    <text class="section__title">新增专项扣除：</text>
+    <text class="section__title">专项扣除：</text>
     <view class="list-item">
       <text class="list__title">住 / 租房：</text>
       <input id="kc_house" bindblur="deduction" type="digit" placeholder="每月1200元" placeholder-class="placeholder" />
@@ -70,7 +70,7 @@
     <button class="col-10" type="primary" bindtap="primary"> 计算 </button>
   </view>
   <view class="cprigt">
-    ©谷阿沐
+    ©谷阿沐(沪)
   </view>
   <!-- 用户 openid -->
   <!-- <view class="userinfo">
