@@ -7,7 +7,7 @@ page {
   justify-content: flex-start;
   
 }
-.panel{padding:2% 3.5%;text-align: center;color: #fff;height: 360rpx;width: 100%;
+.panel{padding:2% 3.5%;text-align: center;color: #fff;height: 350rpx;width: 100%;
 box-sizing: border-box;
 }
 .panel_card{
@@ -18,15 +18,15 @@ box-sizing: border-box;
   border-radius: 10rpx;
   box-shadow: 0 5px 20px rgba(11, 121, 106, 0.4);
   padding: 30rpx 0;
-  min-height: 260rpx;
+  min-height: 250rpx;
 }
 .panel_head,
 .panel__title{font-size: 24rpx;color: rbga(255,255,255,.5)}
-.income{font-size: 48px;}
+.income{font-size: 40px;}
 .panel input{width: 100%;}
 .panel .section{flex-direction: row;}
 .list{}
-.list-item{padding:20rpx 30rpx;display: flex;background: #fff;border-bottom:1rpx solid #eee;width: 100%; box-sizing: border-box;}
+.list-item{padding:16rpx 30rpx;display: flex;background: #fff;border-bottom:1rpx solid #eee;width: 100%; box-sizing: border-box;}
 .list-item:first-child{border-top:1rpx solid #eee;}
 .list-item .list__title{width: 28%;text-align: left;font-size: 28rpx;color:#666;line-height: 53rpx;height: 53rpx;}
 .list-item input{line-height: 53rpx;height: 53rpx;color: #44a592}

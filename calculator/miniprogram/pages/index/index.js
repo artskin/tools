@@ -39,16 +39,25 @@ Page({
     ],
     social:[
       {
+        name:'上海',
         pension:"0.08",
         medical:"0.02",
         unemployment:"0.005",
         providentFund:"0.07"
       },
       {
+        name: '北京',
         pension: "0.08",
         medical: "0.02",
         unemployment: "0.002",
         providentFund: "0.12"
+      },
+      {
+        name: '深圳',
+        pension: "0.08",
+        medical: "0.02",
+        unemployment: "0.01",
+        providentFund: "0.05"
       }
     ],
     kcItems:{
@@ -58,6 +67,10 @@ Page({
       myedu: 0,
       disease: 0,
     },
+    city:{
+      name:'上海'
+    },
+    cityId:0,
     requestResult: '',
     zengshou:0.00,
     wageValue:0.00,
@@ -68,6 +81,24 @@ Page({
     oldWage:0.00,
     newWage:0.00,
     deductionValue:0.00
+  },
+  selectCity(){
+    let _this = this;
+    wx.showActionSheet({
+      itemList: ['上海', '北京', '深圳'],
+      success(res) {
+        console.log(res.tapIndex)
+        _this.setData({
+          city:{
+            name: _this.data.social[res.tapIndex].name
+          },
+          cityId: res.tapIndex
+        })
+      },
+      fail(res) {
+        console.log(res.errMsg)
+      }
+    })
   },
   getSocialFund(socialBase3,i){
     let yanglao = socialBase3 * this.data.social[i].pension;
@@ -87,7 +118,7 @@ Page({
       } else {
         socialBase3 = wageVal;
       }
-      let ratalVal = e.detail.value - this.data.taxBaseVal - this.getSocialFund(socialBase3, 0);
+      let ratalVal = e.detail.value - this.data.taxBaseVal - this.getSocialFund(socialBase3, this.data.cityId);
       if (ratalVal <0){
         ratalVal = 0;
       }
@@ -95,7 +126,7 @@ Page({
       this.setData({
         oldRatalVal: ratalVal,
         newRatalVal: ratalVal,
-        socialFundVal: this.getSocialFund(socialBase3, 0),
+        socialFundVal: this.getSocialFund(socialBase3, this.data.cityId),
         wageValue: e.detail.value
       });
     }

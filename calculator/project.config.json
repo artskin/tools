@@ -11,6 +11,7 @@
 	"appid": "wx999004035f9d2ce5",
 	"projectname": "calculator",
 	"libVersion": "2.2.5",
+	"compileType": "miniprogram",
 	"condition": {
 		"search": {
 			"current": -1,

@@ -8,17 +8,27 @@
       </view>
       <view class="section">
         <view class="panel-item">
-          <text class="panel__title">纳税额度</text>
+          <text class="panel__title">旧税后薪资</text>
           <view>{{oldRatalVal}}</view>
         </view>
         <view class="panel-item">
-          <text class="panel__title">扣除后纳税额度</text>
+          <text class="panel__title">新税后薪资</text>
           <view>{{newRatalVal}}</view>
         </view>
       </view>
     </view>
   </view>
-  <!-- <view class="section">{{socialFundVal}} - {{oldWage}} - {{newWage}}</view> -->
+  <view class="section">
+    <view class="list-item">
+      <text class="list__title">所在城市：</text>
+      <input class='input-disabled' bindtap='selectCity' value="{{city.name}}" disabled />
+      <!-- <radio-group class="radio-group" bindchange="radioChange">
+  <label class="radio" wx:for="{{city}}" wx:key="{{id}}">
+    <radio class="radio" value="{{city.name}}" checked="{{item.checked}}" disabled="{{item.disabled}}" />{{item.value}}
+  </label>
+</radio-group> -->
+    </view>
+  </view>
   <view class="section wage">
     <text class="section__title">您的月收入：</text>
     <view class="list-item">
@@ -34,7 +44,7 @@
     </view>
     <view class="list-item">
       <text class="list__title">五险一金：</text>
-      <input bindblur="deduction" type="digit" placeholder="请输入五险一金扣除额" placeholder-class="placeholder"
+      <input bindblur="deduction" type="digit" placeholder="自动计算" placeholder-class="placeholder"
        value="{{socialFundVal}}"
        data-val="socialFundVal"
         />
@@ -44,8 +54,8 @@
   <view class="section list">
     <text class="section__title">专项扣除：</text>
     <view class="list-item">
-      <text class="list__title">住 / 租房：</text>
-      <input id="kc_house" bindblur="deduction" type="digit" placeholder="每月1200元" placeholder-class="placeholder" />
+      <text class="list__title" bindtap='showInfo'>住/租房：</text>
+      <input id="kc_house" bindblur="deduction" type="digit" placeholder="每月1500元" placeholder-class="placeholder" />
     </view>
     <view class="list-item">
       <text class="list__title">赡养老人：</text>
@@ -72,6 +82,7 @@
   <view class="cprigt">
     ©谷阿沐(沪)
   </view>
+
   <!-- 用户 openid -->
   <!-- <view class="userinfo">
     <button 
