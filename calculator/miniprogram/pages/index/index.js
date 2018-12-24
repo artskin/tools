@@ -102,6 +102,21 @@ Page({
       }
     })
   },
+  selectRate(){
+    let _this = this;
+    wx.showActionSheet({
+      itemList: ['1%', '2%', '3%', '4%', '5%', '6%'],
+      success(res) {
+        console.log(res.tapIndex)
+        _this.setData({
+          cityId: res.tapIndex
+        })
+      },
+      fail(res) {
+        console.log(res.errMsg)
+      }
+    })
+  },
   getSocialFund(socialBase3,i){
     let yanglao = socialBase3 * this.data.social[i].pension;
     let yiliao =  socialBase3 * this.data.social[i].medical;

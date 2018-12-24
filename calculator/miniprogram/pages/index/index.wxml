@@ -55,8 +55,8 @@
     </view>
     <view class="list-item">
       <text class="list__title">补充公积金：</text>
-      <input bindblur="deduction" bindblur="deduction" placeholder="填写补充比例，如：0.05" placeholder-class="placeholder"
-       value="{{socialFundVal}}"
+      <input bindtap="selectRate" placeholder="填写补充比例，如：0.05" placeholder-class="placeholder"
+       value="{{addFundRate}}" disabled 
         />
     </view>
   </view>
