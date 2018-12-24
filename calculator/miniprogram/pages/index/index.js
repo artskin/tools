@@ -73,7 +73,7 @@ Page({
     cityId:0,
     kc_total:0,
     payDutyVal:0,
-    requestResult: '',
+    addFundRate:[0.01,0.02,0.03,0.04,0.05,0.06],
     zengshou:0.00,
     wageValue:0.00,
     oldRatalVal:0.00,
@@ -82,7 +82,10 @@ Page({
     socialFundVal:'',
     oldWage:0.00,
     newWage:0.00,
-    deductionValue:0.00
+    deductionValue:0.00,
+    show:true,
+    value:'选择',
+    range: ["1%", "2%", "3%", "4%", "5%", "6%",]
   },
   selectCity(){
     let _this = this;
@@ -107,9 +110,11 @@ Page({
     wx.showActionSheet({
       itemList: ['1%', '2%', '3%', '4%', '5%', '6%'],
       success(res) {
-        console.log(res.tapIndex)
+        console.log(res.tapIndex, _this.data.addFundRate[res.tapIndex]);
+        let supRate = _this.data.addFundRate[res.tapIndex];
+        console.log(supRate)
         _this.setData({
-          cityId: res.tapIndex
+          addFundRate: supRate* 100+"%"
         })
       },
       fail(res) {
@@ -117,12 +122,28 @@ Page({
       }
     })
   },
+  select() {
+    this.setData({
+      show: true
+    })
+  },
+  bindchange(e) {
+    this.setData({
+      value: e.detail.value,
+      show: false
+    })
+  },
+  cancel() {
+    this.setData({
+      show: false
+    })
+  },
   getSocialFund(socialBase3,i){
     let yanglao = socialBase3 * this.data.social[i].pension;
     let yiliao =  socialBase3 * this.data.social[i].medical;
     let shiye =   socialBase3 * this.data.social[i].unemployment;
     let providentFund = socialBase3 * this.data.social[i].providentFund;
-    console.log("yanglao",yanglao,"yiliao",yiliao,"shiye",shiye,"gongjijin",providentFund)
+    console.log("yanglao", yanglao, "yiliao", yiliao, "shiye", shiye, "gongjijin", providentFund, this.data.addFundRate[4])
 
     return yanglao + yiliao + shiye + providentFund;
   },
@@ -231,7 +252,10 @@ Page({
 
   onLoad: function() {
     wx.showShareMenu();
-    let self = this
+    let self = this;
+    this.setData({
+      addFundRate: this.data.addFundRate[4] * 100 + "%"
+    })
     self.saveinfo = new Proxy({}, {
       set: function (target, key, value, receiver) {
         // 给saveinfo中属性赋值前，可以令程序执行其他功能
