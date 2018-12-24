@@ -7,13 +7,14 @@
         <view class='income'>￥{{zengshou}}</view>
       </view>
       <view class="section">
+        
+        <view class="panel-item">
+          <text class="panel__title">原纳税额度</text>
+          <view>{{payDutyVal}}</view>
+        </view>
         <view class="panel-item">
           <text class="panel__title">扣除项合计</text>
           <view>{{kc_total}}</view>
-        </view>
-        <view class="panel-item">
-          <text class="panel__title">纳税额度</text>
-          <view>{{payDutyVal}}</view>
         </view>
         <view class="panel-item">
           <text class="panel__title">新税后薪资</text>
