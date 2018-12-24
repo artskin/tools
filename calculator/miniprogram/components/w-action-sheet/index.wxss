@@ -1,0 +1,95 @@
+/*
+ * @Author: Github.Caitingwei[https://github.com/Caitingwei] 
+ * @Date: 2018-09-12 14:03:52 
+ * @Last Modified by: Github.Caitingwei[https://github.com/Caitingwei]
+ * @Last Modified time: 2018-12-10 11:26:57
+ */
+@import '../common/theme/global.wxss';
+
+.wuss-action-sheet {
+  background-color: #f3f4f5;
+}
+
+.wuss-action-sheet-hd {}
+
+.wuss-action-sheet-bd {}
+
+.wuss-action-sheet-ft {
+  margin-top: 6px;
+}
+
+.wuss-action-sheet-btns {}
+
+button.wuss-action-sheet-btn,
+button.wuss-action-sheet-cancel {
+  position: relative;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  background-color: #ffffff;
+  font-size: 15px;
+  color: #333333;
+  padding: 0;
+  min-height: 48px;
+  line-height: initial;
+  border-radius: 0;
+  box-shadow: none;
+  text-shadow: none;
+  outline: none;
+  border: none;
+}
+
+
+button.wuss-action-sheet-btn::before,
+button.wuss-action-sheet-cancel::before {
+  display: none;
+}
+
+button.wuss-action-sheet-btn::after,
+button.wuss-action-sheet-cancel::after {
+  content: " ";
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  height: 1px;
+  box-shadow: none;
+  text-shadow: none;
+  line-height: initial;
+  outline: none;
+  border: none;
+  border-radius: 0;
+  background-color: #d9d9d9;
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+  -webkit-transform: scaleY(.5);
+  transform: scaleY(.5);
+}
+
+button.wuss-action-sheet-btn.wuss-action-sheet-btn-hover {
+  background: #ececec;
+}
+
+button.wuss-action-sheet-btn:first-child::after {
+  /* display: none; */
+}
+
+.wuss-action-sheet-btn {}
+
+button.wuss-action-sheet-btn w-icon,
+button.wuss-action-sheet-btn w-activity-indicator {
+  margin-right: 5px;
+}
+
+button.wuss-action-sheet-btn-disabled {
+  color: #b2b2b2;
+}
+
+.w-activity-indicator {
+  transform: scale(.8);
+}

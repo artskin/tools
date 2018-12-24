@@ -1,12 +1,16 @@
 <!--index.wxml-->
 <view class="container">
-  <view class="panel">
+  <view class="header">
     <view class="panel_card">
       <view class="panel_head">
         <text>增收金额</text>
         <view class='income'>￥{{zengshou}}</view>
       </view>
       <view class="section">
+        <view class="panel-item">
+          <text class="panel__title">起征额</text>
+          <view>5000元</view>
+        </view>
         <view class="panel-item">
           <text class="panel__title">原纳税额度</text>
           <view>{{payDutyVal}}</view>
@@ -22,17 +26,19 @@
       </view>
     </view>
   </view>
-  <view class="section">
-    <view class="list-item">
-      <text class="list__title">所在城市：</text>
-      <input class='input-disabled' bindtap='selectCity' value="{{city.name}}" disabled />
-      <!-- <radio-group class="radio-group" bindchange="radioChange">
-  <label class="radio" wx:for="{{city}}" wx:key="{{id}}">
-    <radio class="radio" value="{{city.name}}" checked="{{item.checked}}" disabled="{{item.disabled}}" />{{item.value}}
-  </label>
-</radio-group> -->
-    </view>
+  <view class="panel">
+  <w-cell-group>
+    <w-cell-picker
+    label="选择城市："
+    options="{{ options0 }}"
+    placeholder="上海"
+    title="请选择所在城市"
+    defaultValue="{{[1,1,1]}}"
+    bind:onSelect="handleSelect"
+    />
+  </w-cell-group>
   </view>
+  
   <view class="section wage">
     <text class="section__title">您的月收入：</text>
     <view class="list-item">
@@ -41,11 +47,7 @@
   </view>
 
   <view class="section list">
-    <text class="section__title">常规扣除：</text>
-    <view class="list-item">
-      <text class="list__title">新起征额：</text>
-      <input class='input-disabled' bindblur="deduction" type="digit" value="5000" disabled />
-    </view>
+    <text class="section__title">常规扣除：(起征额5000元)</text>
     <view class="list-item">
       <text class="list__title">五险一金：</text>
       <input bindblur="deduction" type="digit" placeholder="自动计算" placeholder-class="placeholder"
@@ -61,36 +63,48 @@
         
     </view>
   </view>
-  <view class='section'>3
-  <mp-select type="radio" range="{{range}}" value="{{value}}" bindsaveevent="bindchange" bindcancelevent="cancel" wx:if="{{show}}" ></mp-select>
-  </view>
-  <view class="section list">
-    <text class="section__title">专项扣除：</text>
-    <view class="list-item">
-      <text class="list__title" bindtap='showInfo'>住/租房：</text>
-      <input id="kc_house" bindblur="deduction" type="digit" placeholder="每月1500元" placeholder-class="placeholder" />
-    </view>
-    <view class="list-item">
-      <text class="list__title">赡养老人：</text>
-      <input id="kc_parents" bindblur="deduction" type="digit" placeholder="60岁以上，1000元" placeholder-class="placeholder" />
-    </view>
-    <view class="list-item">
-      <text class="list__title">子女教育：</text>
-      <input id="kc_children" bindblur="deduction" type="digit"  placeholder="每月1000元" placeholder-class="placeholder" />
-    </view>
-    <view class="list-item">
-      <text class="list__title">继续教育：</text>
-      <input id="kc_myedu" bindblur="deduction" type="digit" placeholder="每月400元" placeholder-class="placeholder" />
-    </view>
-    <view class="list-item">
-      <text class="list__title">大病医疗：</text>
-      <input id="kc_disease" bindblur="deduction" type="digit" placeholder="" placeholder-class="placeholder" />
-    </view>
+  <text class="section__title">专项扣除：</text>
+  <view class="panel">
+    <w-cell-group>
+      <w-cell-picker
+      label="住/租房："
+      options="{{ options1 }}"
+      title="请选择住房模式"
+      defaultValue="{{[1,1,5]}}"
+      bind:onSelect="handleSelect"
+      />
+      <w-cell-picker
+      label="赡养老人"
+      title="请选择性别"
+      options="{{ options2 }}"
+      defaultValue="非独生子女"
+      bind:onSelect="handleSelect"
+      />
+      <w-cell-picker
+      label="子女教育"
+      title="请选择几个子女"
+      options="{{ options3 }}"
+      defaultValue="60"
+      bind:onSelect="handleSelect"
+      />
+      <w-cell-picker
+      label="继续教育"
+      placeholder="是否有继续教育"
+      options="{{ options4 }}"
+      title="请选择"
+      bind:onSelect="handleSelect"
+      />
+      <w-input
+      type="digit"
+      bindextraClick="extraClick"
+      placeholder="医保外大于1.5w,小于8w的部分"
+      label="大病医疗"
+      />
+    </w-cell-group>
   </view>
 
-  
-  <view class="section gap10">
-    <button class="col-10" type="primary" bindtap="primary"> 计算 </button>
+  <view>
+    <w-button class="border-radius" type="info" bindtap="primary"> 计算 </w-button>
   </view>
   <view class="cprigt">
     ©谷阿沐(沪)

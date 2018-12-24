@@ -7,9 +7,10 @@ page {
   justify-content: flex-start;
   
 }
-.panel{padding:2% 3.5%;text-align: center;color: #fff;height: 350rpx;width: 100%;
+.header{padding:2% 3.5%;text-align: center;color: #fff;height: 350rpx;width: 100%;
 box-sizing: border-box;
 }
+.panel{background: #fff;}
 .panel_card{
   position: fixed;
   background: #44a592;
@@ -23,9 +24,9 @@ box-sizing: border-box;
 .panel_head,
 .panel__title{font-size: 24rpx;color: rbga(255,255,255,.5)}
 .income{font-size: 40px;}
-.panel input{width: 100%;}
-.panel .section{flex-direction: row;}
-.list{}
+.header input{width: 100%;}
+.header .section{flex-direction: row;}
+
 .list-item{padding:16rpx 30rpx;display: flex;background: #fff;border-bottom:1rpx solid #eee;width: 100%; box-sizing: border-box;}
 .list-item:first-child{border-top:1rpx solid #eee;}
 .list-item .list__title{width: 28%;text-align: left;font-size: 28rpx;color:#666;line-height: 53rpx;height: 53rpx;}
@@ -36,9 +37,15 @@ box-sizing: border-box;
 }
 .col-10{width: 100%;}
 .gap10{padding: 30rpx;}
-
-
-button[type=primary]{
+.cell-right{width: 30%;border-top:none}
+.cell{display: flex;
+  justify-content:space-between;
+  box-sizing: border-box;
+  padding-left: 30rpx;
+  background: #fff;
+  padding:16rpx 30rpx;
+}
+button.wuss-button.wuss-button-normalize.wuss-button-info.wuss-button-hover{
   background-color: #44a592;
   border-radius: 100px;
 }

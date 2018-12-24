@@ -1,5 +1,9 @@
 {
   "usingComponents": {
-    "mp-select": "/components/mp-select/index"
+    "w-drop-menu": "/components/w-drop-menu/index",
+    "w-button": "/components/w-button/index",
+    "w-cell": "/components/w-cell/index",
+    "w-cell-picker": "/components/w-cell-picker/index",
+    "w-input": "/components/w-input/index"
   }
 }

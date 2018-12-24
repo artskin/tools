@@ -1,0 +1,28 @@
+/*
+ * @Author: Github.Caitingwei[https://github.com/Caitingwei] 
+ * @Date: 2018-10-31 15:14:32 
+ * @Last Modified by: Github.Caitingwei[https://github.com/Caitingwei]
+ * @Last Modified time: 2018-12-03 15:07:17
+ */
+@import '../common/theme/global.wxss';
+
+.wuss-scrollable-tab-view {
+  
+}
+
+.wuss-scrollable-tab-view::after,
+.wuss-scrollable-tab-view::before {
+  display: table;
+  clear: both;
+  overflow: hidden;
+}
+
+.w-scrollable-tab-view-bar {
+  display: block;
+  overflow: hidden;
+}
+
+page {
+  margin: 0;
+  padding: 0;
+}

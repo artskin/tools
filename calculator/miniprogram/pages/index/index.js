@@ -1,6 +1,7 @@
 //index.js
 const app = getApp()
 
+
 Page({
   data: {
     avatarUrl: './user-unlogin.png',
@@ -85,7 +86,151 @@ Page({
     deductionValue:0.00,
     show:true,
     value:'选择',
-    range: ["1%", "2%", "3%", "4%", "5%", "6%",]
+    range: ["1%", "2%", "3%", "4%", "5%", "6%",],
+    options0:[
+      {
+        key: '上海',
+        value: '110000',
+      },
+      {
+        key: '北京',
+        value: '440000',
+      },
+      {
+        key: '深圳',
+        value: '440000',
+      },
+    ],
+    options1: [
+      [{
+        key: '住房贷款利息',
+        value: '110000',
+      },
+      {
+        key: '住房租金',
+        value: '440000',
+      },
+      ],
+      [{
+        key: '首套房',
+        value: '110100',
+        parent: '110000',
+      },
+      {
+        key: '直辖市/省会等',
+        value: '440100',
+        parent: '440000',
+      },
+      {
+        key: '人口>100w城市',
+        value: '440200',
+        parent: '440000',
+      },
+      {
+        key: '人口≤100w城市',
+        value: '440201',
+        parent: '440000',
+      }
+      ],
+      [{
+        key: '1000元/月',
+        value: '1000',
+        parent: '110100',
+      },
+      {
+        key: '1500元/月',
+        value: '1500',
+        parent: '440100',
+      },
+      {
+        key: '1100元/月',
+        value: '1100',
+        parent: '440200',
+      },
+      {
+        key: '800元/月',
+        value: '800',
+        parent: '440201',
+      }
+      ],
+    ],
+    options2: [
+      [{
+        key: '独生子女',
+        value: '110000',
+      },
+      {
+        key: '非独生子女',
+        value: '440000',
+      },
+      ],
+      [{
+        key: '2000元/月',
+        value: '110100',
+        parent: '110000',
+      },
+      {
+        key: '1000元/月',
+        value: '440100',
+        parent: '440000',
+      }
+      ]
+    ],
+    options3: [
+      [{
+        key: '1个子女',
+        value: '0'
+      },
+      {
+        key: '2个子女',
+        value: '1'
+      },
+      {
+        key: '3个子女',
+        value: '2'
+      },
+      ],
+      [{
+        key: '1000元/月',
+        value: '2',
+        parent: '0'
+      },
+      {
+        key: '2000元/月',
+        value: '5',
+        parent: '1'
+      },
+      {
+        key: '3000元/月',
+        value: '6',
+        parent: '2'
+      }
+      ],
+    ],
+    options4: [
+      [{
+        key: '否',
+        value: '0'
+      },
+      {
+        key: '是',
+        value: '1'
+      }
+      ],
+      [
+      {
+        key: '400元/月',
+        value: '400',
+        parent: '1'
+      }
+      ],
+    ]
+  },
+  extraClick(e) {
+    console.log('注释被点击了', e);
+  },
+  handleSelect(e){
+    console.log(e.detail.value)
   },
   selectCity(){
     let _this = this;
