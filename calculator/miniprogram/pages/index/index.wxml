@@ -8,8 +8,12 @@
       </view>
       <view class="section">
         <view class="panel-item">
-          <text class="panel__title">旧税后薪资</text>
-          <view>{{oldRatalVal}}</view>
+          <text class="panel__title">扣除项合计</text>
+          <view>{{kc_total}}</view>
+        </view>
+        <view class="panel-item">
+          <text class="panel__title">纳税额度</text>
+          <view>{{payDutyVal}}</view>
         </view>
         <view class="panel-item">
           <text class="panel__title">新税后薪资</text>
@@ -47,6 +51,12 @@
       <input bindblur="deduction" type="digit" placeholder="自动计算" placeholder-class="placeholder"
        value="{{socialFundVal}}"
        data-val="socialFundVal"
+        />
+    </view>
+    <view class="list-item">
+      <text class="list__title">补充公积金：</text>
+      <input bindblur="deduction" bindblur="deduction" placeholder="填写补充比例，如：0.05" placeholder-class="placeholder"
+       value="{{socialFundVal}}"
         />
     </view>
   </view>

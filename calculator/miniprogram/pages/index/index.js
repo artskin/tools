@@ -71,6 +71,8 @@ Page({
       name:'上海'
     },
     cityId:0,
+    kc_total:0,
+    payDutyVal:0,
     requestResult: '',
     zengshou:0.00,
     wageValue:0.00,
@@ -105,6 +107,7 @@ Page({
     let yiliao =  socialBase3 * this.data.social[i].medical;
     let shiye =   socialBase3 * this.data.social[i].unemployment;
     let providentFund = socialBase3 * this.data.social[i].providentFund;
+    console.log("yanglao",yanglao,"yiliao",yiliao,"shiye",shiye,"gongjijin",providentFund)
 
     return yanglao + yiliao + shiye + providentFund;
   },
@@ -165,6 +168,7 @@ Page({
 
       this.setData({
         newRatalVal: ratalVal,
+        kc_total: deductionVal
         // kcItems: {
         //   house: house_val,
         //   parents: parents_val,
@@ -202,7 +206,8 @@ Page({
 
       console.log(newIncomeVal,oldIncomeVal, _this.data.socialFundVal, edu * theRate - theDeduction)
       _this.setData({
-        zengshou: (newIncomeVal- oldIncomeVal).toFixed(2)
+        zengshou: (newIncomeVal- oldIncomeVal).toFixed(2),
+        payDutyVal: newIncomeVal
       })
 
     },100)
