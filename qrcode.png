@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+
+<meta charset="utf-8">
+<meta name="HandheldFriendly" content="true">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript"> 
+    
+    window._points=[+new Date()];
+
+    
+    function wx_main(mod){
+        window._points&&(window._points[3]=+new Date());
+    };
+
+    window.wx={
+    	uin:""||"0"
+    };
+</script>
+ 
+<script onerror="wx_loaderror(this)" type="text/javascript" src="https://res.wx.qq.com/wxopenres/zh_CN/htmledition/js/common/wx/jserr3c252c.js"></script>
+<title>微信公众平台</title> 
+<link href="https://res.wx.qq.com/wxopenres/htmledition/images/favicon32f740.ico" rel="Shortcut Icon">
+<link onerror="wx_loaderror(this)" rel="stylesheet" type="text/css" href="https://res.wx.qq.com/wxopenres/htmledition/style/base/base49a914.css"/>
+<link onerror="wx_loaderror(this)" rel="stylesheet" type="text/css" href="https://res.wx.qq.com/wxopenres/htmledition/style/base/base49a914.css"/>
+<link onerror="wx_loaderror(this)" rel="stylesheet" type="text/css" href="https://res.wx.qq.com/wxopenres/htmledition/style/base/lib415a77.css"/>
+<link onerror="wx_loaderror(this)" rel="stylesheet" type="text/css" href="https://res.wx.qq.com/wxopenres/htmledition/style/base/layout_head438199.css"/>
+<link onerror="wx_loaderror(this)" rel="stylesheet" type="text/css" href="https://res.wx.qq.com/wxopenres/htmledition/style/base/layout_head438199.css"/>
+
+
+
+
+        <link onerror="wx_loaderror(this)" rel="stylesheet" type="text/css" href="https://res.wx.qq.com/wxopenres/htmledition/style/page/error/page_error38267d.css"/>
+		
+    </head>
+    <body class="zh_CN">
+    	<div class="head blur_row" id="header">
+			<script type="text/javascript">
+    
+    window._points&&(window._points[1]=+new Date());
+</script>
+<div class="head_box js_head_box">
+    <h1 class="logo"><a href="/" title="微信公众平台 小程序"></a></h1>
+    <div class="header_ctrls">
+        <ul class="header_ctrls_meta top_nav">
+            <li class="top_nav_item">
+                                <a href="https://developers.weixin.qq.com/miniprogram/dev/framework/" target="_blank">文档</a>
+                            </li>
+            <li class="top_nav_item"><a href="http://developers.weixin.qq.com/" target="_blank">社区</a></li>
+        </ul>
+        
+        <div class="header_ctrls_meta top_tools_box">
+            <a class="top_user_switch" href="javascript:;">工具</a>
+            <i class="icon_arrow_right_global"></i>
+            <div class="skin_pop">
+                <div class="skin_pop_inner">
+                    <div class="skin_pop_bd">
+                        <a href="/wxamp/wxaqrcode/weappcode?simple=1&token=&lang=zh_CN" class="">生成小程序码</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+                            </div>
+   
+</div>
+		</div>
+        <div id="body" class="body blur_row page_error page_timeout">
+            <div class="container_box">
+                <div class="page_error_msg">
+                    <div class="inner">
+                        <span class="icon_wrp">
+                            <i class="icon_page_error"></i>
+                        </span>
+                        <div class="msg_content">
+                            
+                <h2>登录超时，请重新<a id='jumpUrl' href=''>登录</a></h2>
+        <script>
+        	var pathname = location.pathname,
+        		search = location.search;
+			document.getElementById('jumpUrl').setAttribute('href','/?url='+encodeURIComponent(pathname + search));
+		</script>
+        	
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+        
+        document.getElementById('body').style.minHeight = document.documentElement.clientHeight-123+"px"
+        window.onresize = function() {
+            document.getElementById('body').style.minHeight = document.documentElement.clientHeight-123+"px"
+        }
+        </script> 
+        <div class="foot blur_row page_full" id="footer">
+            <ul class="links ft"> 
+	   
+		<li class="links_item"><a href="http://www.tencent.com/zh-cn/index.shtml" target="_blank">关于腾讯</a></li>
+		<li class="links_item"><a href="/wxopen/wawiki?action=dir_list&path=introduction/index&lang=zh_CN&token=" target="_blank">文档中心</a></li>
+		<li class="links_item"><a href="/cgi-bin/opshowpage?action=dispelinfo&lang=zh_CN&begin=1&count=9" target="_blank">辟谣中心</a></li>
+		<li class="links_item"><a href="http://kf.qq.com/product/wx_xcx.html" target="_blank">客服中心</a></li>
+									<li class="links_item"><a href="/acct/infringementlogin?action=getkey&lang=zh_CN" target="_blank">侵权投诉</a></li>
+				<li class="links_item"><p class="copyright">Copyright &copy; 2012-2019 Tencent. All Rights Reserved.</p></li>
+</ul>
+<script type="text/javascript">
+    
+    window._points&&(window._points[2]=+new Date());
+</script>
+ <script language="javascript">
+     if(typeof(pgvMain) == 'function')
+         pgvMain({senseParam: "t"});
+ </script>
+        </div>
+	</body>
+
+</html>
+
